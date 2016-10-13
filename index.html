@@ -11,17 +11,17 @@
         var router = new Router('#app');
         router.use('/', {
             render: function(){
-                return '<div><h4>page1</h4><p><a href="#/baidu">a path does not exits<a><br/><a href="#/page2">#page2</a></p></div>';
+                return '<div><h4>page1</h4><p><a href="#/baidu">a path does not exist<a><br/><a href="#/page2">#page2</a></p></div>';
             },
             onEnter: function(){
-                alert("hi i\'m here, page1");
+                alert("hi here, i'm page1");
             },
             onLeave: function(){
                 alert('goodbye page1');
             }
         }).use('/page2', {
             render: function(){
-                return '<div>page2</div>';
+                return '<div><h4>page2</h4></div>';
             },
             onEnter: function(){
                 alert('hi page2');
