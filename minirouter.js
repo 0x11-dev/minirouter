@@ -4,7 +4,7 @@ var mockController = {
     render: function(){
         return "<div></div>"
     }
-    onNavigateTo: function(){
+    onEnter: function(){
         //this对象为当前组件，即{path, controller: controller}对象
     }
     onLeave: function(){
@@ -69,7 +69,7 @@ var mockController = {
         }
 
         this._container.innerHTML = html;
-        (next.controller.onNavigateTo || noop).call(next);
+        (next.controller.onEnter || noop).call(next);
     }
 
     Router.prototype.eventHandler = function (e) {

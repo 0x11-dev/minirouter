@@ -12,7 +12,7 @@ var mockController = {
     render: function(){
         return "<div></div>"
     }
-    onNavigateTo: function(){
+    onEnter: function(){
         //this对象为当前组件，即{path, controller: controller}对象
     }
     onLeave: function(){
@@ -37,7 +37,7 @@ router.use('/', {
     render: function(){
         return '<div><h4>page1</h4><p><a href="#/baidu">a path does not exits<a><br/><a href="#/page2">#page2</a></p></div>';
     },
-    onNavigateTo: function(){
+    onEnter: function(){
         alert("hi i\'m here, page1");
     },
     onLeave: function(){
@@ -47,7 +47,7 @@ router.use('/', {
     render: function(){
         return '<div>page2</div>';
     },
-    onNavigateTo: function(){
+    onEnter: function(){
         alert('hi page2');
     },
     onLeave: function(){
