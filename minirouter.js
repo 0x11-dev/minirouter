@@ -54,6 +54,7 @@ var mockController = {
 
     Router.prototype.default = function (defaultPath) {
         this._defaultPath = defaultPath;
+        return this;
     }
 
     Router.prototype.go = function (nextPath, prev, replace) {
