@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="minirouter.js"></script>
+</head>
+<body>
+    <div id="app">hi</div>
+    <script>
+        var router = new Router('#app');
+        router.use('/', {
+            render: function(){
+                return '<div><h4>page1</h4><p><a href="#/baidu">a path does not exits<a><br/><a href="#/page2">#page2</a></p></div>';
+            },
+            onNavigateTo: function(){
+                alert("hi i\'m here, page1");
+            },
+            onLeave: function(){
+                alert('goodbye page1');
+            }
+        }).use('/page2', {
+            render: function(){
+                return '<div>page2</div>';
+            },
+            onNavigateTo: function(){
+                alert('hi page2');
+            },
+            onLeave: function(){
+                alert('bye page2');
+            }
+        }).run();
+    </script>
+</body>
+</html>
