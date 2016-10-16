@@ -59,9 +59,10 @@ var mockController = {
 
     Router.prototype.go = function (nextPath, prev, replace) {
         var current = getRoute(this._routes, prev || window.location),
-            next = getRoute(this._routes, getFullPath(nextPath), this._defaultPath);
+            next = getRoute(this._routes, nextPath, this._defaultPath);
 
-        current && (current.controller.onLeave || noop).call(current);
+        current && !!prev && (current.controller.onLeave || noop).call(current);
+
         var html = next.controller.render();
         if (replace) {
             history.replaceState(document.title, document.title, location.pathname + '#' + next.path);
